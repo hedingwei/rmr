@@ -32,7 +32,7 @@
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>rmr-plugins-messages-commons</artifactId>
+            <artifactId>rmr-messages-commons</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>

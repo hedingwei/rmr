@@ -214,3 +214,5 @@ pip-log.txt
 #Mr Developer
 .mr.developer.cfg
 /rmr-messages-commons/target/
+/rmr-configuration/target/
+/rmr-collector/target/
