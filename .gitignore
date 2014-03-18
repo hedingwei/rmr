@@ -216,3 +216,4 @@ pip-log.txt
 /rmr-messages-commons/target/
 /rmr-configuration/target/
 /rmr-collector/target/
+/rmr-archetype-mapper/target/

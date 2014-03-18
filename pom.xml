@@ -13,5 +13,7 @@
     <module>rmr-server</module>
     <module>rmr-plugins-socketcollector</module>
     <module>rmr-messages-commons</module>
+    <module>rmr-archetype-mapper</module>
+    <module>rmr-archetype-reducer</module>
   </modules>
 </project>
