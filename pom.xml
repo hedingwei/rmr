@@ -11,6 +11,7 @@
     <module>rmr-collector</module>
     <module>rmr-client</module>
     <module>rmr-server</module>
-    <module>rmr-plugins-messages-commons</module>
+    <module>rmr-plugins-socketcollector</module>
+    <module>rmr-messages-commons</module>
   </modules>
 </project>

@@ -7,11 +7,11 @@
         <version>1.0.0-SNAPSHOT</version>
     </parent>
     <groupId>com.ambimmort</groupId>
-    <artifactId>rmr-plugins-messages-commons</artifactId>
+    <artifactId>rmr-messages-commons</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>rmr-plugins-messages-commons</name>
+    <name>rmr-messages-commons</name>
     <url>http://maven.apache.org</url>
 
     <properties>
