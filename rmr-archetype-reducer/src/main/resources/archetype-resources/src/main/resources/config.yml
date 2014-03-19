@@ -14,7 +14,7 @@ server:
     collector: 
         className: com.ambimmort.rmr.plugins.collector.PrintCollector
         paras:
-            file: /opt/output.txt
+            file: /opt/out.txt
             cps:
                 - 10.8.1.1
                 - 10.8.1.1

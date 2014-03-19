@@ -30,6 +30,7 @@ server:
 #                - 10.8.1.1
 
 cache: 
+    on: true
     limit: 1000
     period: 20
     threads_max: 50

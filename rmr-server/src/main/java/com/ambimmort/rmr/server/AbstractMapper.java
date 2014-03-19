@@ -6,6 +6,7 @@
 package com.ambimmort.rmr.server;
 
 import com.ambimmort.rmr.collector.AbstractCollector;
+import com.ambimmort.rmr.configuration.Configuration;
 
 /**
  *
@@ -26,6 +27,11 @@ public abstract class AbstractMapper {
     public abstract void preMap(Object msg, Object key, Object value, AbstractCollector collector);
 
     public abstract void postMap(Object msg, Object key, Object value, AbstractCollector collector);
+
+    public AbstractMapper() {
+        Configuration config = Configuration.getConfig();
+        this.isUseCache = config.getCache().isOn();
+    }
 
     public AbstractCollector getCollector() {
         return collector;

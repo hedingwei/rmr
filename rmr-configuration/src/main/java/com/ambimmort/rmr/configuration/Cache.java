@@ -16,6 +16,16 @@ public class Cache {
     private int threads_max;
     private int check_interval;
 
+    private boolean on;
+
+    public boolean isOn() {
+        return on;
+    }
+
+    public void setOn(boolean on) {
+        this.on = on;
+    }
+
     public int getLimit() {
         return limit;
     }

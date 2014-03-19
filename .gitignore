@@ -217,3 +217,4 @@ pip-log.txt
 /rmr-configuration/target/
 /rmr-collector/target/
 /rmr-archetype-mapper/target/
+/rmr-archetype-reducer/target/
