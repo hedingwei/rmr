@@ -14,20 +14,10 @@ server:
     collector: 
         className: com.ambimmort.rmr.plugins.collector.PrintCollector
         paras:
-            file: C:/Users/定巍/Desktop/collector.txt
-            ips:
+            file: /opt/out.txt
+            cps:
                 - 10.8.1.1
                 - 10.8.1.1
-                
-#    type: reducer
-#    mrhandler: com.ambimmort.rmr.SimpleReducer
-#    collector: 
-#        className: com.ambimmort.sd.PrintCollector
-#        paras:
-#            file: C:/Users/定巍/Desktop/collector.txt
-#            ips:
-#                - 10.8.1.1
-#                - 10.8.1.1
 
 log:
     logcodec: false
