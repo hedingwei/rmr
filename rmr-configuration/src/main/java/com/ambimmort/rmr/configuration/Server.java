@@ -17,6 +17,7 @@ public class Server {
     private String type;
     private String mrhandler;
     private Collector collector;
+    
 
     public String getType() {
         return type;

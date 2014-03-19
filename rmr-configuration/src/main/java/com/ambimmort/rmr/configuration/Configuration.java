@@ -20,6 +20,16 @@ public class Configuration {
     private Server server;
 
     private Log log;
+    
+    private Cache cache;
+
+    public Cache getCache() {
+        return cache;
+    }
+
+    public void setCache(Cache cache) {
+        this.cache = cache;
+    }
 
     public Server getServer() {
         return server;

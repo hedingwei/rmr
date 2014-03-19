@@ -15,6 +15,10 @@ public abstract class AbstractMapper {
 
     private AbstractCollector collector = null;
 
+    private boolean isUseCache = false;
+
+    private MapperMessageCache cache = MapperMessageCache.getInstance();
+
     public abstract void map(Object key, Object value, AbstractCollector collector);
 
     public abstract Object[] makeKV(Object msg);
@@ -32,9 +36,14 @@ public abstract class AbstractMapper {
     }
 
     public void doMap(Object msg) {
-        Object[] kv = makeKV(msg);
-        preMap(msg, kv[0], kv[1], collector);
-        map(kv[0], kv[1], collector);
-        postMap(msg, kv[0], kv[1], collector);
+        if (isUseCache) {
+            cache.add(msg);
+        } else {
+            Object[] kv = makeKV(msg);
+            preMap(msg, kv[0], kv[1], collector);
+            map(kv[0], kv[1], collector);
+            postMap(msg, kv[0], kv[1], collector);
+        }
+
     }
 }
