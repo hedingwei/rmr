@@ -18,7 +18,12 @@ server:
             cps:
                 - 10.8.1.1
                 - 10.8.1.1
-
+cache: 
+    limit: 1000
+    period: 20
+    threads_max: 50
+    check_interval: 1
+    
 log:
     logcodec: false
     logconfigfile: etc/log4j.conf
