@@ -65,9 +65,9 @@ public class MapperMessageCache extends TimerTask {
     public void add(Object msg) {
         msgs.add(msg);
         lastUpdateTime = System.currentTimeMillis();
-        final List<Object> allmsgs = msgs;
-        if (allmsgs.size() >= limit) {
-            service.submit(new Runnable() {
+        if (msgs.size() >= limit) {
+            final List<Object> allmsgs = msgs;
+            service.execute(new Runnable() {
                 public void run() {
                     AbstractCollector collector = mapper.getCollector();
                     for (Object m : allmsgs) {
@@ -90,7 +90,7 @@ public class MapperMessageCache extends TimerTask {
                 return;
             }
             final List<Object> allmsgs = msgs;
-            service.submit(new Runnable() {
+            service.execute(new Runnable() {
                 public void run() {
                     AbstractCollector collector = mapper.getCollector();
                     for (Object m : allmsgs) {

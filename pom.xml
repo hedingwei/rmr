@@ -15,5 +15,6 @@
     <module>rmr-messages-commons</module>
     <module>rmr-archetype-mapper</module>
     <module>rmr-archetype-reducer</module>
+    <module>rmr-plugins-fstserialization</module>
   </modules>
 </project>

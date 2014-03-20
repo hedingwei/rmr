@@ -5,6 +5,7 @@
  */
 package com.ambimmort.rmr.client;
 
+import com.ambimmort.rmr.plugins.fstserialization.FstSerializationCodecFactory;
 import java.net.InetSocketAddress;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -41,7 +42,7 @@ public class ConnectionPoint {
         this.endPoint.setPort(port);
         connector = new NioSocketConnector();
         connector.setConnectTimeoutMillis(10 * 1000);
-        connector.getFilterChain().addLast("codec", new ProtocolCodecFilter(new ObjectSerializationCodecFactory()));
+        connector.getFilterChain().addLast("codec", new ProtocolCodecFilter(new FstSerializationCodecFactory()));
         connector.setHandler(new IoHandlerAdapter() {
             @Override
             public void sessionOpened(IoSession session) throws Exception {

@@ -218,3 +218,5 @@ pip-log.txt
 /rmr-collector/target/
 /rmr-archetype-mapper/target/
 /rmr-archetype-reducer/target/
+/rmr-plugins-kryoserialization/target/
+/rmr-plugins-fstserialization/target/

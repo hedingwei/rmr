@@ -6,7 +6,6 @@
 package com.ambimmort.rmr.server;
 
 import com.ambimmort.rmr.collector.AbstractCollector;
-import com.ambimmort.rmr.server.AbstractMapper;
 import com.ambimmort.rmr.configuration.Configuration;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -29,6 +28,7 @@ public class MapperHandler extends IoHandlerAdapter {
             System.out.println("mapper:"+mapper.getClass().getName()+" initialized.");
             AbstractCollector collector = (AbstractCollector) Class.forName(Configuration.getConfig().getServer().getCollector().getClassName()).newInstance();
             mapper.setCollector(collector);
+            MapperMessageCache.getInstance().setMapper(mapper);
             System.out.println("collector:"+this.getClass().getName()+" initialized.");
         } catch (Exception ex) {
             Logger.getLogger(MapperHandler.class.getName()).log(Level.SEVERE, null, ex);
