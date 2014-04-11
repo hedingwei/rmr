@@ -220,3 +220,5 @@ pip-log.txt
 /rmr-archetype-reducer/target/
 /rmr-plugins-kryoserialization/target/
 /rmr-plugins-fstserialization/target/
+/rmr-client/target/
+/rmr-server/target/

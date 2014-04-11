@@ -8,7 +8,7 @@ package com.ambimmort.rmr.plugins.socketcollector;
 import java.io.Serializable;
 import java.util.List;
 import com.ambimmort.rmr.client.Client;
-import com.ambimmort.rmr.client.ConnectionPoint;
+import com.ambimmort.rmr.client.Connection;
 import com.ambimmort.rmr.collector.AbstractCollector;
 import com.ambimmort.rmr.messages.commons.KeyValueMessage;
 
@@ -28,7 +28,7 @@ public class SocketCollector extends AbstractCollector {
             String cp = (String) cps.get(i);
             String host = cp.split(":")[0];
             int port = Integer.parseInt(cp.split(":")[1]);
-            new ConnectionPoint(host, port, client);
+            new Connection(host, port, client);
             
         }
         client.connect();
