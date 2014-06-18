@@ -11,6 +11,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.apache.mina.core.RuntimeIoException;
 import org.apache.mina.core.future.ConnectFuture;
+import org.apache.mina.core.future.DefaultIoFuture;
 import org.apache.mina.core.service.IoConnector;
 import org.apache.mina.core.service.IoHandlerAdapter;
 import org.apache.mina.core.session.IoSession;
@@ -64,6 +65,7 @@ public class Connection {
             public void exceptionCaught(IoSession session, Throwable cause) throws Exception {
                 Connection.this.connected = false;
                 session.close(true);
+                cause.printStackTrace();
                 reconnect();
             }
 
@@ -91,7 +93,7 @@ public class Connection {
                         System.out.println("**********----***********");
                         System.out.println("session[" + session.getId() + "] local:" + session.getLocalAddress() + " remote:" + session.getRemoteAddress());
                         System.out.println("ConnectFuture isCanceled:" + future.isCanceled() + "\tisConnected:" + future.isConnected() + "\tisDone:" + future.isDone());
-                        System.out.println("ConnectFuture Exception: " + future.getException().toString());
+                        System.out.println("ConnectFuture Exception: " + future.getException());
                         System.out.println("**********----***********");
                         if (!Connection.this.client.getCps().contains(Connection.this)) {
                             Connection.this.client.addConnectionPoint(Connection.this);
@@ -99,21 +101,22 @@ public class Connection {
                         }
                     }
                 });
-                future.awaitUninterruptibly(5000);
-                session = future.getSession();
-                session.getCloseFuture().awaitUninterruptibly(5000);
-                if (!Connection.this.client.getCps().contains(Connection.this)) {
-                    Connection.this.client.addConnectionPoint(Connection.this);
-                    Connection.this.client.refresh();
-                }
+//                future.awaitUninterruptibly(5000);
+//                session = future.getSession();
+//                session.getCloseFuture().awaitUninterruptibly(5000);
+//                if (!Connection.this.client.getCps().contains(Connection.this)) {
+//                    Connection.this.client.addConnectionPoint(Connection.this);
+//                    Connection.this.client.refresh();
+//                }
             }
-
+            
             private void reconnect() {
                 while (true) {
                     try {
                         reconnectOnStart();
                         break;
                     } catch (Throwable e) {
+                        e.printStackTrace();
                     }
                 }
             }
@@ -129,6 +132,7 @@ public class Connection {
                             reconnectOnStart();
                             break;
                         } catch (Throwable e) {
+                            e.printStackTrace();
                         }
                     }
                 }
@@ -148,7 +152,7 @@ public class Connection {
                             System.out.println("**********----***********");
                             System.out.println("session[" + session.getId() + "] local:" + session.getLocalAddress() + " remote:" + session.getRemoteAddress());
                             System.out.println("ConnectFuture isCanceled:" + future.isCanceled() + "\tisConnected:" + future.isConnected() + "\tisDone:" + future.isDone());
-                            System.out.println("ConnectFuture Exception: " + future.getException().toString());
+                            System.out.println("ConnectFuture Exception: " + future.getException());
                             System.out.println("**********----***********");
                             if (!Connection.this.client.getCps().contains(Connection.this)) {
                                 Connection.this.client.addConnectionPoint(Connection.this);
@@ -156,9 +160,9 @@ public class Connection {
                             }
                         }
                     });
-                    future.awaitUninterruptibly(5000);
-                    session = future.getSession();
-                    session.getCloseFuture().awaitUninterruptibly(5000);
+//                    future.awaitUninterruptibly(5000);
+//                    session = future.getSession();
+//                    session.getCloseFuture().awaitUninterruptibly(5000);
 
                 }
             });
