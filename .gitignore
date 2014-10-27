@@ -222,3 +222,4 @@ pip-log.txt
 /rmr-plugins-fstserialization/target/
 /rmr-client/target/
 /rmr-server/target/
+/rmr-plugins-socketcollector/target/
